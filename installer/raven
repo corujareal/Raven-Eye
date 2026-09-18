@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+set -eu
+RAVENEYE_HOME="__RAVENEYE_HOME__"
+PYTHON=${PYTHON:-python3}
+VENDOR_DIR="$RAVENEYE_HOME/_vendor"
+if [ -d "$VENDOR_DIR" ]; then
+  if [ -n "${PYTHONPATH:-}" ]; then
+    PYTHONPATH="$VENDOR_DIR:$PYTHONPATH"
+  else
+    PYTHONPATH="$VENDOR_DIR"
+  fi
+  export PYTHONPATH
+fi
+exec "$PYTHON" "$RAVENEYE_HOME/RavenEye.py" "$@"

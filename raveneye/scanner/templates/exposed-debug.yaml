@@ -1,0 +1,8 @@
+id: exposed-debug
+info:
+  name: Exposed Debug Indicator
+  severity: medium
+  tags: [exposure, misconfiguration]
+matchers:
+  - type: word
+    words: ["Traceback (most recent call last)", "DEBUG = True"]

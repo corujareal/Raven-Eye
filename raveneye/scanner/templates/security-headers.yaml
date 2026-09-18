@@ -1,0 +1,10 @@
+id: raveneye-security-headers
+info:
+  name: Security Header Evidence
+  severity: low
+  confidence: high
+  remediation: Configure the missing security headers according to the application security baseline.
+  tags: [headers, passive]
+matchers:
+  - type: word
+    words: ["server:"]
