@@ -1,0 +1,39 @@
+================================================================================
+RAVENEYE v6.6.6 — RELATÓRIO DE SEGURANÇA
+================================================================================
+ALVO: https://example.test
+DATA: 2026-08-25T00:00:00Z
+MODO: Vulnerability Scanner
+RISK SCORE: 4.2/10
+================================================================================
+
+[RESUMO EXECUTIVO]
+CRÍTICO: 0 | ALTO: 1 | MÉDIO: 2 | BAIXO: 2 | INFO: 1
+Superfície analisada: 18 URLs | 7 endpoints | 2 tecnologias
+
+[FINDING-001]
+Nome: Missing Content-Security-Policy
+Severidade: MÉDIO
+Confidence: HIGH
+URL: https://example.test/
+Evidência: resposta HTTPS sem header Content-Security-Policy.
+Impacto: reduz uma camada de defesa do navegador contra determinados ataques de conteúdo.
+Remediação: definir uma CSP compatível com os recursos legítimos da aplicação.
+
+[FINDING-002]
+Nome: Cookie sem HttpOnly
+Severidade: BAIXO
+Confidence: HIGH
+URL: https://example.test/login
+Evidência: cookie de sessão observado sem atributo HttpOnly.
+Remediação: usar HttpOnly quando o cookie não precisar ser acessado por JavaScript.
+
+[ENDPOINTS]
+https://example.test/
+https://example.test/login
+
+[TECNOLOGIAS]
+HTTPS
+Example Framework
+
+[FIM DO RELATÓRIO]

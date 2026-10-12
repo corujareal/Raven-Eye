@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+set -eu
+
+RAVENEYE_LAUNCHER=1
+case "$0" in
+  */*) launcher_path=$0 ;;
+  *) launcher_path=$(command -v "$0" 2>/dev/null || printf '%s' "$0") ;;
+esac
+home_file="${launcher_path}.home"
+if [ ! -f "$home_file" ] || [ -L "$home_file" ]; then
+  echo "Arquivo de instalação do RavenEye ausente ou inválido: ${home_file}" >&2
+  exit 1
+fi
+IFS= read -r RAVENEYE_HOME < "$home_file" || RAVENEYE_HOME=
+case "$RAVENEYE_HOME" in
+  /*) ;;
+  *) echo "Caminho da instalação RavenEye inválido; execute novamente o instalador." >&2; exit 1 ;;
+esac
+PLAYWRIGHT_BROWSERS_PATH="$RAVENEYE_HOME/.playwright-browsers"
+export PLAYWRIGHT_BROWSERS_PATH
+if [ ! -f "$RAVENEYE_HOME/RavenEye.py" ] || [ ! -f "$RAVENEYE_HOME/.raveneye-install" ]; then
+  echo "Instalação RavenEye incompleta em $RAVENEYE_HOME; execute novamente o instalador." >&2
+  exit 1
+fi
+
+PYTHON=${PYTHON:-python3}
+VENDOR_DIR="$RAVENEYE_HOME/_vendor"
+if [ -d "$VENDOR_DIR" ]; then
+  if [ -n "${PYTHONPATH:-}" ]; then
+    PYTHONPATH="$VENDOR_DIR:$PYTHONPATH"
+  else
+    PYTHONPATH="$VENDOR_DIR"
+  fi
+  export PYTHONPATH
+fi
+exec "$PYTHON" "$RAVENEYE_HOME/RavenEye.py" "$@"

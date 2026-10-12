@@ -1,0 +1,763 @@
+{
+  "fixture": {
+    "origin": "http://127.0.0.1:38385",
+    "labeled_pages": 200,
+    "known_endpoints": 100,
+    "known_javascript_endpoints": 3,
+    "runtime_only_endpoints": 3,
+    "runtime_post_is_local_and_state_free": true,
+    "module_imports": 1,
+    "duplicate_pairs": 100,
+    "stress_urls": 9500,
+    "categories": [
+      "login",
+      "error",
+      "listing",
+      "form"
+    ],
+    "private_network_access": "exact loopback IP:port only"
+  },
+  "settings": {
+    "runs": 3,
+    "warmups": 0,
+    "depth": 3,
+    "max_pages": 11000,
+    "rps": 200,
+    "global_concurrency": 20,
+    "process_isolation": "Both crawlers run in separate processes; fixture server remains in parent.",
+    "rss_method": "Peak RSS divided by requested unique URLs and scaled to 10,000 is an absolute normalized process cost, not marginal growth. On small fixtures the fixed process baseline dominates; use a >=10k-URL stress fixture for memory comparisons. Incremental RSS is reported only for RavenEye, whose worker emits an initialized-process readiness baseline.",
+    "katana_static_controls": [
+      "-c 20",
+      "-rl 200",
+      "-mdp 11000",
+      "-d 3",
+      "-jc",
+      "-jsl (deeper JS parser)",
+      "-fx",
+      "-ndef (allow static JS resources)",
+      "-j",
+      "-or",
+      "-ob",
+      "-duf (disable response-body dedup so endpoint coverage is comparable)"
+    ],
+    "katana_headless_controls": [
+      "-hl",
+      "-xhr",
+      "-c 20",
+      "-rl 200",
+      "-mdp 11000",
+      "-d 3",
+      "-jc",
+      "-jsl",
+      "-j",
+      "-or",
+      "-ob",
+      "-duf"
+    ]
+  },
+  "raveneye": {
+    "median_p95": {
+      "2xx_per_second": {
+        "median": 9.002877120917766,
+        "p95": 9.003068027088352
+      },
+      "crawl_execution_seconds": {
+        "median": 50.713556158000074,
+        "p95": 50.77018193399999
+      },
+      "duplicate_flagged": {
+        "median": 100,
+        "p95": 100
+      },
+      "duplicate_precision": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "duplicate_recall": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "elapsed_seconds": {
+        "median": 51.20585272999983,
+        "p95": 51.352436805000025
+      },
+      "fixture_duplicate_request_paths": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_duplicate_requests": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_http_responses": {
+        "median": 10018,
+        "p95": 10018
+      },
+      "fixture_other_duplicate_requests": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_pages_requested": {
+        "median": 10018,
+        "p95": 10018
+      },
+      "fixture_post_requests_sent": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_server_error_retry_requests": {
+        "median": 0,
+        "p95": 0
+      },
+      "frontier_peak_capacity": {
+        "median": 128,
+        "p95": 128
+      },
+      "jsonl_known_api_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "jsonl_rows": {
+        "median": 10018,
+        "p95": 10018
+      },
+      "jsonl_unique_urls": {
+        "median": 10018,
+        "p95": 10018
+      },
+      "known_api_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "known_js_endpoint_jsonl_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "known_js_endpoint_request_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "known_page_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "module_script_request_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "page_class_macro_f1": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "queue_ram_limit": {
+        "median": 128,
+        "p95": 128
+      },
+      "responses_per_second": {
+        "median": 195.6416984758225,
+        "p95": 195.64584706154255
+      },
+      "rss_increment_kib": {
+        "median": 25776,
+        "p95": 44272
+      },
+      "rss_increment_kib_per_10k_urls": {
+        "median": 25729.686564184467,
+        "p95": 44192.45358354961
+      },
+      "rss_peak_kib": {
+        "median": 88116,
+        "p95": 106460
+      },
+      "rss_peak_kib_per_10k_urls": {
+        "median": 87957.67618287083,
+        "p95": 106268.71631064084
+      },
+      "rss_start_kib": {
+        "median": 62340,
+        "p95": 62372
+      },
+      "runtime_endpoint_capture_coverage": {
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "runtime_post_observed": {
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "schema_version_rows": {
+        "median": 10018,
+        "p95": 10018
+      },
+      "stress_url_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "stress_urls_expected": {
+        "median": 9500,
+        "p95": 9500
+      },
+      "stress_urls_seen": {
+        "median": 9500,
+        "p95": 9500
+      },
+      "unique_pages_per_second": {
+        "median": 195.6416984758225,
+        "p95": 195.64584706154255
+      },
+      "urls_seen": {
+        "median": 10018,
+        "p95": 10018
+      }
+    },
+    "runs": [
+      {
+        "jsonl_unique_urls": 10018,
+        "jsonl_rows": 10018,
+        "jsonl_known_api_coverage": 1.0,
+        "known_js_endpoint_request_coverage": 1.0,
+        "known_js_endpoint_jsonl_coverage": 1.0,
+        "runtime_endpoint_capture_coverage": 0.0,
+        "runtime_methods_observed": [],
+        "runtime_post_observed": 0.0,
+        "module_script_request_coverage": 1.0,
+        "jsonl_api_path_examples": [
+          "/api/item/000",
+          "/api/item/001",
+          "/api/item/002",
+          "/api/item/003",
+          "/api/item/004"
+        ],
+        "page_class_macro_f1": 1.0,
+        "page_class_metrics": {
+          "login": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "error": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "listing": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "form": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          }
+        },
+        "duplicate_precision": 1.0,
+        "duplicate_recall": 1.0,
+        "duplicate_flagged": 100,
+        "duplicate_false_positive_examples": [],
+        "duplicate_false_negative_examples": [],
+        "elapsed_seconds": 51.352436805000025,
+        "crawl_execution_seconds": 50.77018193399999,
+        "fixture_http_responses": 10018,
+        "fixture_pages_requested": 10018,
+        "urls_seen": 10018,
+        "stress_urls_expected": 9500,
+        "stress_urls_seen": 9500,
+        "stress_url_coverage": 1.0,
+        "known_api_coverage": 1.0,
+        "known_page_coverage": 1.0,
+        "responses_per_second": 195.08324479403436,
+        "unique_pages_per_second": 195.08324479403436,
+        "2xx_per_second": 8.977178663410845,
+        "rss_peak_kib": 86616,
+        "rss_start_kib": 62372,
+        "rss_increment_kib": 24244,
+        "rss_peak_kib_per_10k_urls": 86460.37133160312,
+        "rss_increment_kib_per_10k_urls": 24200.43920942304,
+        "frontier_peak_capacity": 128,
+        "queue_ram_limit": 128,
+        "headless_rendering": false,
+        "fixture_method_counts": {
+          "GET": 10018
+        },
+        "fixture_post_requests_sent": 0,
+        "schema_version_rows": 10018,
+        "fixture_duplicate_requests": 0,
+        "fixture_duplicate_request_paths": 0,
+        "fixture_server_error_retry_requests": 0,
+        "fixture_other_duplicate_requests": 0,
+        "fixture_duplicate_request_examples": []
+      },
+      {
+        "jsonl_unique_urls": 10018,
+        "jsonl_rows": 10018,
+        "jsonl_known_api_coverage": 1.0,
+        "known_js_endpoint_request_coverage": 1.0,
+        "known_js_endpoint_jsonl_coverage": 1.0,
+        "runtime_endpoint_capture_coverage": 0.0,
+        "runtime_methods_observed": [],
+        "runtime_post_observed": 0.0,
+        "module_script_request_coverage": 1.0,
+        "jsonl_api_path_examples": [
+          "/api/item/000",
+          "/api/item/001",
+          "/api/item/002",
+          "/api/item/003",
+          "/api/item/004"
+        ],
+        "page_class_macro_f1": 1.0,
+        "page_class_metrics": {
+          "login": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "error": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "listing": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "form": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          }
+        },
+        "duplicate_precision": 1.0,
+        "duplicate_recall": 1.0,
+        "duplicate_flagged": 100,
+        "duplicate_false_positive_examples": [],
+        "duplicate_false_negative_examples": [],
+        "elapsed_seconds": 51.204766931999984,
+        "crawl_execution_seconds": 50.700675305999994,
+        "fixture_http_responses": 10018,
+        "fixture_pages_requested": 10018,
+        "urls_seen": 10018,
+        "stress_urls_expected": 9500,
+        "stress_urls_seen": 9500,
+        "stress_url_coverage": 1.0,
+        "known_api_coverage": 1.0,
+        "known_page_coverage": 1.0,
+        "responses_per_second": 195.64584706154255,
+        "unique_pages_per_second": 195.64584706154255,
+        "2xx_per_second": 9.003068027088352,
+        "rss_peak_kib": 88116,
+        "rss_start_kib": 62340,
+        "rss_increment_kib": 25776,
+        "rss_peak_kib_per_10k_urls": 87957.67618287083,
+        "rss_increment_kib_per_10k_urls": 25729.686564184467,
+        "frontier_peak_capacity": 128,
+        "queue_ram_limit": 128,
+        "headless_rendering": false,
+        "fixture_method_counts": {
+          "GET": 10018
+        },
+        "fixture_post_requests_sent": 0,
+        "schema_version_rows": 10018,
+        "fixture_duplicate_requests": 0,
+        "fixture_duplicate_request_paths": 0,
+        "fixture_server_error_retry_requests": 0,
+        "fixture_other_duplicate_requests": 0,
+        "fixture_duplicate_request_examples": []
+      },
+      {
+        "jsonl_unique_urls": 10018,
+        "jsonl_rows": 10018,
+        "jsonl_known_api_coverage": 1.0,
+        "known_js_endpoint_request_coverage": 1.0,
+        "known_js_endpoint_jsonl_coverage": 1.0,
+        "runtime_endpoint_capture_coverage": 0.0,
+        "runtime_methods_observed": [],
+        "runtime_post_observed": 0.0,
+        "module_script_request_coverage": 1.0,
+        "jsonl_api_path_examples": [
+          "/api/item/000",
+          "/api/item/001",
+          "/api/item/002",
+          "/api/item/003",
+          "/api/item/004"
+        ],
+        "page_class_macro_f1": 1.0,
+        "page_class_metrics": {
+          "login": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "error": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "listing": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          },
+          "form": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "false_positive_examples": []
+          }
+        },
+        "duplicate_precision": 1.0,
+        "duplicate_recall": 1.0,
+        "duplicate_flagged": 100,
+        "duplicate_false_positive_examples": [],
+        "duplicate_false_negative_examples": [],
+        "elapsed_seconds": 51.20585272999983,
+        "crawl_execution_seconds": 50.713556158000074,
+        "fixture_http_responses": 10018,
+        "fixture_pages_requested": 10018,
+        "urls_seen": 10018,
+        "stress_urls_expected": 9500,
+        "stress_urls_seen": 9500,
+        "stress_url_coverage": 1.0,
+        "known_api_coverage": 1.0,
+        "known_page_coverage": 1.0,
+        "responses_per_second": 195.6416984758225,
+        "unique_pages_per_second": 195.6416984758225,
+        "2xx_per_second": 9.002877120917766,
+        "rss_peak_kib": 106460,
+        "rss_start_kib": 62188,
+        "rss_increment_kib": 44272,
+        "rss_peak_kib_per_10k_urls": 106268.71631064084,
+        "rss_increment_kib_per_10k_urls": 44192.45358354961,
+        "frontier_peak_capacity": 128,
+        "queue_ram_limit": 128,
+        "headless_rendering": false,
+        "fixture_method_counts": {
+          "GET": 10018
+        },
+        "fixture_post_requests_sent": 0,
+        "schema_version_rows": 10018,
+        "fixture_duplicate_requests": 0,
+        "fixture_duplicate_request_paths": 0,
+        "fixture_server_error_retry_requests": 0,
+        "fixture_other_duplicate_requests": 0,
+        "fixture_duplicate_request_examples": []
+      }
+    ]
+  },
+  "headless_included": false,
+  "raveneye_headless": {
+    "skipped": "pass --include-headless to run browser mode"
+  },
+  "katana": {
+    "median_p95": {
+      "2xx_per_second": {
+        "median": 7.5425967758341015,
+        "p95": 7.543524207213807
+      },
+      "elapsed_seconds": {
+        "median": 60.19147165000004,
+        "p95": 60.19395777099999
+      },
+      "fixture_duplicate_request_paths": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_duplicate_requests": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_http_responses": {
+        "median": 10006,
+        "p95": 10006
+      },
+      "fixture_other_duplicate_requests": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_pages_requested": {
+        "median": 10006,
+        "p95": 10006
+      },
+      "fixture_post_requests_sent": {
+        "median": 0,
+        "p95": 0
+      },
+      "fixture_server_error_retry_requests": {
+        "median": 0,
+        "p95": 0
+      },
+      "jsonl_known_api_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "jsonl_rows": {
+        "median": 10005,
+        "p95": 10005
+      },
+      "jsonl_unique_urls": {
+        "median": 10005,
+        "p95": 10005
+      },
+      "known_api_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "known_js_endpoint_jsonl_coverage": {
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "known_js_endpoint_request_coverage": {
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "known_page_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "module_script_request_coverage": {
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "responses_per_second": {
+        "median": 166.23617475549784,
+        "p95": 166.25661501625848
+      },
+      "rss_peak_kib": {
+        "median": 98228,
+        "p95": 98664
+      },
+      "rss_peak_kib_per_10k_urls": {
+        "median": 98169.09854087548,
+        "p95": 98604.83709774136
+      },
+      "runtime_endpoint_capture_coverage": {
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "stress_url_coverage": {
+        "median": 1.0,
+        "p95": 1.0
+      },
+      "stress_urls_expected": {
+        "median": 9500,
+        "p95": 9500
+      },
+      "stress_urls_seen": {
+        "median": 9500,
+        "p95": 9500
+      },
+      "unique_pages_per_second": {
+        "median": 166.23617475549784,
+        "p95": 166.25661501625848
+      },
+      "urls_seen": {
+        "median": 10006,
+        "p95": 10006
+      }
+    },
+    "runs": [
+      {
+        "urls_seen": 10006,
+        "stress_urls_expected": 9500,
+        "stress_urls_seen": 9500,
+        "stress_url_coverage": 1.0,
+        "jsonl_unique_urls": 10005,
+        "jsonl_rows": 10005,
+        "known_api_coverage": 1.0,
+        "jsonl_known_api_coverage": 1.0,
+        "jsonl_api_path_examples": [
+          "/api/item/000",
+          "/api/item/001",
+          "/api/item/002",
+          "/api/item/003",
+          "/api/item/004"
+        ],
+        "known_page_coverage": 1.0,
+        "known_js_endpoint_request_coverage": 0.0,
+        "known_js_endpoint_jsonl_coverage": 0.0,
+        "module_script_request_coverage": 0.0,
+        "runtime_endpoint_capture_coverage": 0.0,
+        "elapsed_seconds": 60.19147165000004,
+        "fixture_http_responses": 10006,
+        "fixture_pages_requested": 10006,
+        "headless_rendering": false,
+        "fixture_method_counts": {
+          "GET": 10006
+        },
+        "fixture_post_requests_sent": 0,
+        "responses_per_second": 166.23617475549784,
+        "unique_pages_per_second": 166.23617475549784,
+        "2xx_per_second": 7.5425967758341015,
+        "rss_peak_kib": 98664,
+        "rss_peak_kib_per_10k_urls": 98604.83709774136,
+        "diagnostic": "",
+        "fixture_duplicate_requests": 0,
+        "fixture_duplicate_request_paths": 0,
+        "fixture_server_error_retry_requests": 0,
+        "fixture_other_duplicate_requests": 0,
+        "fixture_duplicate_request_examples": []
+      },
+      {
+        "urls_seen": 10006,
+        "stress_urls_expected": 9500,
+        "stress_urls_seen": 9500,
+        "stress_url_coverage": 1.0,
+        "jsonl_unique_urls": 10005,
+        "jsonl_rows": 10005,
+        "known_api_coverage": 1.0,
+        "jsonl_known_api_coverage": 1.0,
+        "jsonl_api_path_examples": [
+          "/api/item/000",
+          "/api/item/001",
+          "/api/item/002",
+          "/api/item/003",
+          "/api/item/004"
+        ],
+        "known_page_coverage": 1.0,
+        "known_js_endpoint_request_coverage": 0.0,
+        "known_js_endpoint_jsonl_coverage": 0.0,
+        "module_script_request_coverage": 0.0,
+        "runtime_endpoint_capture_coverage": 0.0,
+        "elapsed_seconds": 60.18407146699997,
+        "fixture_http_responses": 10006,
+        "fixture_pages_requested": 10006,
+        "headless_rendering": false,
+        "fixture_method_counts": {
+          "GET": 10006
+        },
+        "fixture_post_requests_sent": 0,
+        "responses_per_second": 166.25661501625848,
+        "unique_pages_per_second": 166.25661501625848,
+        "2xx_per_second": 7.543524207213807,
+        "rss_peak_kib": 97968,
+        "rss_peak_kib_per_10k_urls": 97909.2544473316,
+        "diagnostic": "",
+        "fixture_duplicate_requests": 0,
+        "fixture_duplicate_request_paths": 0,
+        "fixture_server_error_retry_requests": 0,
+        "fixture_other_duplicate_requests": 0,
+        "fixture_duplicate_request_examples": []
+      },
+      {
+        "urls_seen": 10006,
+        "stress_urls_expected": 9500,
+        "stress_urls_seen": 9500,
+        "stress_url_coverage": 1.0,
+        "jsonl_unique_urls": 10005,
+        "jsonl_rows": 10005,
+        "known_api_coverage": 1.0,
+        "jsonl_known_api_coverage": 1.0,
+        "jsonl_api_path_examples": [
+          "/api/item/000",
+          "/api/item/001",
+          "/api/item/002",
+          "/api/item/003",
+          "/api/item/004"
+        ],
+        "known_page_coverage": 1.0,
+        "known_js_endpoint_request_coverage": 0.0,
+        "known_js_endpoint_jsonl_coverage": 0.0,
+        "module_script_request_coverage": 0.0,
+        "runtime_endpoint_capture_coverage": 0.0,
+        "elapsed_seconds": 60.19395777099999,
+        "fixture_http_responses": 10006,
+        "fixture_pages_requested": 10006,
+        "headless_rendering": false,
+        "fixture_method_counts": {
+          "GET": 10006
+        },
+        "fixture_post_requests_sent": 0,
+        "responses_per_second": 166.22930889619377,
+        "unique_pages_per_second": 166.22930889619377,
+        "2xx_per_second": 7.542285252735556,
+        "rss_peak_kib": 98228,
+        "rss_peak_kib_per_10k_urls": 98169.09854087548,
+        "diagnostic": "",
+        "fixture_duplicate_requests": 0,
+        "fixture_duplicate_request_paths": 0,
+        "fixture_server_error_retry_requests": 0,
+        "fixture_other_duplicate_requests": 0,
+        "fixture_duplicate_request_examples": []
+      }
+    ],
+    "version": "v1.8.0"
+  },
+  "katana_headless": {
+    "skipped": "pass --include-headless to run browser mode",
+    "version": "v1.8.0"
+  },
+  "comparison": {
+    "unique_pages_per_second": {
+      "raveneye_median": 195.6416984758225,
+      "katana_median": 166.23617475549784,
+      "ratio_raveneye_over_katana": 1.1768900407121052
+    },
+    "known_api_coverage": {
+      "raveneye_median": 1.0,
+      "katana_median": 1.0,
+      "ratio_raveneye_over_katana": 1.0
+    },
+    "known_page_coverage": {
+      "raveneye_median": 1.0,
+      "katana_median": 1.0,
+      "ratio_raveneye_over_katana": 1.0
+    },
+    "known_js_endpoint_request_coverage": {
+      "raveneye_median": 1.0,
+      "katana_median": 0.0,
+      "ratio_raveneye_over_katana": null
+    },
+    "known_js_endpoint_jsonl_coverage": {
+      "raveneye_median": 1.0,
+      "katana_median": 0.0,
+      "ratio_raveneye_over_katana": null
+    },
+    "runtime_endpoint_capture_coverage": {
+      "raveneye_median": 0.0,
+      "katana_median": 0.0,
+      "ratio_raveneye_over_katana": null
+    },
+    "module_script_request_coverage": {
+      "raveneye_median": 1.0,
+      "katana_median": 0.0,
+      "ratio_raveneye_over_katana": null
+    },
+    "stress_url_coverage": {
+      "raveneye_median": 1.0,
+      "katana_median": 1.0,
+      "ratio_raveneye_over_katana": 1.0
+    },
+    "rss_peak_kib_per_10k_urls": {
+      "raveneye_median": 87957.67618287083,
+      "katana_median": 98169.09854087548,
+      "ratio_raveneye_over_katana": 0.89598129645906
+    },
+    "jsonl_known_api_coverage": {
+      "raveneye_median": 1.0,
+      "katana_median": 1.0
+    }
+  },
+  "environment": {
+    "os": "Linux",
+    "architecture": "x86_64",
+    "python": "3.14.7"
+  },
+  "benchmark_date": "2026-10-09",
+  "katana_distribution": {
+    "release": "v1.8.0",
+    "asset": "katana_1.8.0_linux_amd64.zip",
+    "asset_sha256": "cb027ae99d0757061b70c07a15c7a80f62c5a535ab52c4a329f80c4b0a7309d2"
+  }
+}

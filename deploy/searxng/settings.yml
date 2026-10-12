@@ -1,0 +1,16 @@
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "RavenEye local SearXNG"
+
+search:
+  formats:
+    - html
+    - json
+
+server:
+  # Replaced by the SEARXNG_SECRET environment variable from .env.
+  secret_key: "ultrasecretkey"
+  limiter: false
+  image_proxy: false

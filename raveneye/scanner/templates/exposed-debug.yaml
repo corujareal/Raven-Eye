@@ -1,0 +1,12 @@
+schema_version: '1.0'
+id: exposed-debug
+info:
+  name: Exposed Debug Indicator
+  severity: medium
+  confidence: low
+  stage: POSSIBLE
+  tags: [exposure, misconfiguration]
+matchers:
+  - type: word
+    words: ["Traceback (most recent call last)", "DEBUG = True"]
+    part: body

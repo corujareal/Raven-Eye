@@ -1,0 +1,20 @@
+services:
+  searxng:
+    # SearXNG uses rolling releases. Pin tag and digest; update only after review.
+    image: ghcr.io/searxng/searxng:2026.10.4-d48c4b555@sha256:76b0bf285aca014c7191fc4d9234c4bfb358624ac33d8883833d496c059ec072
+    container_name: raveneye-searxng
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      SEARXNG_SECRET: "${SEARXNG_SECRET:?Generate SEARXNG_SECRET in .env before starting}"
+      GRANIAN_LOG_ACCESS_ENABLED: "false"
+    volumes:
+      - ./settings.yml:/etc/searxng/settings.yml:ro
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
