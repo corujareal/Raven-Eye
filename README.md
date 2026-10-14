@@ -212,12 +212,6 @@ wrapper instalado que já resolve o ambiente/dependências.
 
 Ciclo de manutenção: **verificar → forçar em ambiente controlado → encontrar erro → corrigir → testar novamente → aumentar a segurança**.
 
-## Loop de QA e manutenção
-
-Toda evolução deve seguir: **verificar → forçar em ambiente controlado → encontrar erro → corrigir → testar novamente → aumentar a segurança → repetir**.
-
-O release não considera uma heurística como vulnerabilidade confirmada sem evidência suficiente; candidatos recebem confidence apropriado e permanecem no histórico do banco para comparação entre scans.
-
 ## Diagnóstico local
 
 Use o comando `doctor` para verificar o ambiente sem fazer requisições de rede:
